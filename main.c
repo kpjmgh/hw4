@@ -27,5 +27,40 @@ int main(int argc, char *argv[]) {
 
 	char *cmdline = malloc(MAXBUF); // buffer to store user input from commmand line
 
+	//my code here
+		
+	char cmd[MAXBUF];
+	while(strcmp(cmd, "exit\n") != 0){
+		//scanf("%[^\n]", cmd);
+		char* EOFtest = fgets(cmd, MAXBUF, stdin);
+		if(EOFtest == NULL){
+			exit(0);
+		}
+
+		if(cmd[strlen(cmd)-1]=='\n'){//get rid of new line
+      		cmd[strlen(cmd)-1]='\0';
+    	}
+
+		//trim potential space at start of cmd
+		trimSpace(cmd);
+		
+		char **terms = split(cmd, " ");
+		
+		if(cmd[0]=='/'){
+			mode1(terms);
+		}
+		else{	
+			mode2(terms, cmd);
+		}
+		/*
+		// print out all the tokens
+		int i = 0;
+		while (terms[i] != NULL) {
+  			printf("%s\n", terms[i]);
+  			i++;
+		}
+		*/
+	}
+	
 	return 0;
 }

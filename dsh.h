@@ -1,8 +1,12 @@
 #define MAXBUF 256  // max number of characteres allowed on command line
 
 // TODO: Any global variables go below
-int thisIsGlobal = 10;  // delete before submission
 
 // TODO: Function declarations go below
-void example(int*); // delete before submission
-
+char** createStringArray(int num, int capacity); //taken from assignment info
+char** split(char *str, char *delim);
+int mode1(char** terms);
+int mode2(char **terms, char cmd[]);
+void forkAndExec(char** terms);
+void trimSpace(char cmd[]);
+char* cdPath(char cmd[]);
